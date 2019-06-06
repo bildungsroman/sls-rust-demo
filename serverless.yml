@@ -18,5 +18,5 @@ plugins:
   - serverless-rust
 functions:
   hello:
-    handler: main.main
+    handler: hello
     runtime: provided
