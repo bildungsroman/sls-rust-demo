@@ -12,6 +12,8 @@ provider:
         - xray:GetSamplingTargets
         - xray:GetSamplingStatisticSummaries
       Resource: '*'
+package:
+  individually: true
 plugins:
   - serverless-rust
   - serverless-iam-roles-per-function
