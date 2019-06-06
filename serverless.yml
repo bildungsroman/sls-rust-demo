@@ -16,7 +16,18 @@ package:
   individually: true
 plugins:
   - serverless-rust
+  - serverless-iam-roles-per-function
+  - serverless-cf-vars
 functions:
   hello:
     handler: hello
     runtime: provided
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - xray:PutTraceSegments
+          - xray:PutTelemetryRecords
+          - xray:GetSamplingRules
+          - xray:GetSamplingTargets
+          - xray:GetSamplingStatisticSummaries
+        Resource: '*'
